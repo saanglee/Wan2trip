@@ -30,7 +30,6 @@ const CancellationModal = (newData: Hotel, isBooked: boolean) => {
 
 export default CancellationModal;
 /*
-
         <div>
           <div className="mt-5 text-sm tracking-wider">
             <p>예약 내역에서 삭제하시겠습니까?</p>
