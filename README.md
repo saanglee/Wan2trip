@@ -13,7 +13,7 @@
 | 김수빈 | 팀원 </br> Frontend |                                          - 검색 api, 조회</br> - 검색 UI</br>-검색창 연관검색어                                           |
 | 김민주 | 팀원 </br> Frontend |                         - 검색 결과 페이지,예약 확인 페이지 반응형 웹 구현 </br> - 무한스크롤에 옵저버 기능 추가                          |
 | 이상지 | 팀장 </br> Frontend | - 예약 (로컬스토리지 저장) 기능 및 예약취소(저장된 데이터 삭제) 구현 </br> - 전체 데이터 get api </br> - 호텔 카드 구현 - 기획 및 팀 리딩 |
-| 이혜림 | 팀원 </br> Frontend |                    - modal, responsive calenders </br> - custom hooks, global layout </br> - tailwindCSS 플러그인 설정                    |
+| 이혜림 | 팀원 </br> Frontend |                    - modal, responsive calenders </br> - custom hooks, global layout, darkmode </br> - tailwindCSS 플러그인 설정                    |
 | 홍승연 | 팀원 </br> Frontend |                                             - virtual scroll 구현</br> - 무한스크롤 api 구현                                              |
 
 </br>
@@ -190,6 +190,8 @@ wan2trip
 ## responsive
 
 - tailwind를 이용하여 반응형을 구현하였습니다.
+- tailwind를 이용하여 다크모드를 구현하였습니다.
+- purgecss를 이용하여 빌드시 번들 압축 작업을 하여 Utility-first CSS의 단점을 상쇄했습니다.
 
 </br>
 
@@ -235,7 +237,7 @@ wan2trip
 
 ## calender
 
-전제조건 : 반응형 캘린더, 오늘 일자로부터 12개월까지만 보여주기
+전제조건 : 반응형 캘린더
 
 - 트립비토즈 사이트의 경우 모바일일때는 스크롤로, 데스크탑일때는 2개월씩으로 캘린더를 보여주고 있습니다.
 - 그래서 우선 1개월을 만들수 있는 로직을 짜고, 그 1개월을 반복하는 방식이면 12개월을 다 만들 필요가 없겠다고 생각이 들었습니다.
@@ -243,9 +245,11 @@ wan2trip
 
 ### recoil
 
-- (오늘 날짜에 해당하는 today?) `today`(Date객체)를 가져오면 1개월치 Date테이블(즉 캘린더)을 반환하는 getMonth Hook을 구현한 후, `today`는? 전역으로 관리하기로 했습니다.
-- 데스크탑의 경우: today, today +1 로 2개를 세팅합니다. (무엇이 두개?!)
-- 모바일의 경우: `today`(Date객체)를 배열로 만든 후 초기값으로 today ~ today + 3까지 세팅해놓습니다.
+- 전제조건 : today === '오늘'일자로부터 12개월까지만 보여주기
+
+- `today`(Date객체)를 가져오면 today가 있는 달의 1개월치 캘린더를 반환하는 getMonth Hook을 구현한 후, `today`를 전역으로 관리하기로 했습니다.
+- 데스크탑의 경우: today, today month+1 로 2개의 달을 세팅합니다.
+- 모바일의 경우: `today`(Date객체)를 배열로 만든 후 초기값으로 today ~ today month+3 까지 세팅해놓습니다.
 
 - 또한 캘린더에서 사용자가 선택한 값을 다른 컴포넌트(다른 어떤 컴포넌트?!)로 전달하기 위해 `pickedDate`도 전역 객체로 관리하고 있습니다.
 - `pickedDate`의 구성요소는 startDate, endDate입니다. (각각 checkIn, checkOut 날짜에 해당합니다.)
@@ -253,11 +257,13 @@ wan2trip
 ### useObserver
 
 - 모바일의 경우 모든 캘린더를 한번에 노출하면 스크롤이 불필요하게 길어집니다.
-- 따라서 useObserver를 활용해 무한스크롤을 구현했고 이를 Hook으로 분리하여 사용성을 높였습니다. (어떤 Hook인가요)
+- 따라서 observer를 활용해 무한스크롤을 구현했고 이를 useObserver라는 Hook으로 분리하여 사용성을 높였습니다.
 
 ### cell
 
-- 각 셀에서 사용자가 날짜를 선택 시 비교작업(? 무엇과 무엇을 비교)을 해서 해당 일자에 색깔을 달리하여 강조표시를 해두었습니다.
+- 각 셀에서 사용자가 날짜를 선택 시
+- startDate, endDate의 distance를 배열로 구하여 필터를 돌리게 됩니다.
+- 그리고 필터리스트와 각 셀의 Date를 비교하여 일치시 해당 일자에 하이라이트를 주었습니다.
 
 </br>
 </br>
@@ -290,4 +296,15 @@ wan2trip
 
 ### 호텔 예약, 취소 시의 모달창
 
-...
+### common/Confirm
+- isShown, hide, modalContent, headerText
+- 4개를 인자로 받아서 클릭시 모달 구조를 생성해주는 템플릿입니다.
+- isShown, hide는 useConfirm에서 들어갑니다.
+- modalContent에 실제 컴포넌트를 넣으면 백드랍과 close버튼이 있는 모달 안에 컨텐츠를 넣어 표시해줍니다.
+
+### useConfirm
+- useState값을 hook으로 분리하여 캘린더의 경우 전역으로 관리, 예약의 경우 지역으로 관리하고 있습니다.
+
+### ConfirmContent
+- 클릭시 데이터를 전달받아 실제 호텔의 정보가 같이 들어갑니다.
+
