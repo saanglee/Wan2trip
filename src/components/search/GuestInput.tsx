@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
-import tw from "tailwind-styled-components";
-import UserBlackIcon from "../../static/image/User.svg";
-import { ReactComponent as CloseIcon } from "../../static/image/Close.svg";
+import React, { useState, useEffect, useRef } from 'react';
+import tw from 'tailwind-styled-components';
+import UserBlackIcon from '../../static/image/User.svg';
+import { ReactComponent as CloseIcon } from '../../static/image/Close.svg';
 
-import GuestCounter from "./GuestCounter";
-import { useRecoilState } from "recoil";
-import { AdultNumber, ChildrenNumber, PeopleNumber } from "store/search";
+import GuestCounter from './GuestCounter';
+import { useRecoilState } from 'recoil';
+import { AdultNumber, ChildrenNumber, PeopleNumber } from 'store/search';
 
 const maxPeople = 8;
 
@@ -37,17 +37,17 @@ const GuestInput = ({ peopleNum }: GuestProps) => {
 
   const onClickCounter = (counter: string, people: string) => {
     switch (counter) {
-      case "plus":
-        if (people === "adult" && adultNum !== maxPeople) {
+      case 'plus':
+        if (people === 'adult' && adultNum !== maxPeople) {
           setAdultNum(adultNum + 1);
-        } else if (people === "children" && childrenNum !== maxPeople) {
+        } else if (people === 'children' && childrenNum !== maxPeople) {
           setChildrenNum(childrenNum + 1);
         }
         break;
-      case "minus":
-        if (people === "adult" && adultNum !== 0) {
+      case 'minus':
+        if (people === 'adult' && adultNum !== 0) {
           setAdultNum(adultNum - 1);
-        } else if (people === "children" && childrenNum !== 0) {
+        } else if (people === 'children' && childrenNum !== 0) {
           setChildrenNum(childrenNum - 1);
         }
         break;
@@ -57,9 +57,9 @@ const GuestInput = ({ peopleNum }: GuestProps) => {
   };
 
   useEffect(() => {
-    window.addEventListener("click", onClickClose);
+    window.addEventListener('click', onClickClose);
     return () => {
-      window.addEventListener("click", onClickClose);
+      window.addEventListener('click', onClickClose);
     };
   }, []);
 

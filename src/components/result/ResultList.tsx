@@ -1,13 +1,13 @@
-import VirtualScroll from "common/VirtualScroll";
-import React, { useEffect, useRef, useCallback, RefObject } from "react";
-import Card from "../../common/Card";
-import { useRecoilValue } from "recoil";
-import { PeopleNumber, SearchValue } from "store/search";
-import { useSearchResults } from "api/queries";
-import { changeInfiniteScrollDataToArray } from "../../utils/changeInfiniteScrollDataToArray";
-import { Hotel } from "types/types";
-import Noreserve from "../../static/image/Noreserve.png";
-import Spinner from "../../static/icons/spinner.png";
+import VirtualScroll from 'common/VirtualScroll';
+import React, { useEffect, useRef, useCallback, RefObject } from 'react';
+import Card from '../../common/Card';
+import { useRecoilValue } from 'recoil';
+import { PeopleNumber, SearchValue } from 'store/search';
+import { useSearchResults } from 'api/queries';
+import { changeInfiniteScrollDataToArray } from '../../utils/changeInfiniteScrollDataToArray';
+import { Hotel } from 'types/types';
+import Noreserve from '../../static/image/Noreserve.png';
+import Spinner from '../../static/icons/spinner.png';
 
 const ResultList = () => {
   const searchKeyword = useRecoilValue(SearchValue);
@@ -46,7 +46,7 @@ const ResultList = () => {
   return (
     <div>
       {isLoading && (
-        <div className="w-full h-full flex justify-center item-center">
+        <div className="flex justify-center w-full h-full item-center">
           <img src={Spinner} alt="로딩중 스피너" className="animate-spin" />
         </div>
       )}
@@ -75,7 +75,7 @@ const ResultListContent = ({
   return (
     <>
       {isRefetching && (
-        <div className="w-full h-full flex justify-center item-center">
+        <div className="flex justify-center w-full h-full item-center">
           <img src={Spinner} alt="로딩중 스피너" className="animate-spin" />
         </div>
       )}
@@ -96,7 +96,7 @@ const ResultListContent = ({
               );
             })}
           </VirtualScroll>
-          <div className="w-full h-full flex justify-center item-center">
+          <div className="flex justify-center w-full h-full item-center">
             <img
               src={Spinner}
               ref={target}

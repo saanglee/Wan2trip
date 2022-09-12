@@ -1,12 +1,12 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable no-unreachable-loop */
-import React, { useRef, useState } from "react";
-import tw from "tailwind-styled-components";
-import { ReactComponent as SearchBlackIcon } from "../../static/image/SearchBlack.svg";
-import { ReactComponent as CancelIcon } from "../../static/image/Cancel.svg";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { SearchValue, SearchListOpen } from "../../store/search";
-import Dropdown from "./dropdown/Dropdown";
+import React, { useRef, useState } from 'react';
+import tw from 'tailwind-styled-components';
+import { ReactComponent as SearchBlackIcon } from '../../static/image/SearchBlack.svg';
+import { ReactComponent as CancelIcon } from '../../static/image/Cancel.svg';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { SearchValue, SearchListOpen } from '../../store/search';
+import Dropdown from './dropdown/Dropdown';
 interface SearchProps {
   value: string;
   onChangeHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -26,7 +26,7 @@ const SearchInput = ({
   const setSearchDropdownOpen = useSetRecoilState(SearchListOpen);
 
   const onRemoveValue = () => {
-    setKeyword("");
+    setKeyword('');
     setSearchDropdownOpen(false);
   };
 

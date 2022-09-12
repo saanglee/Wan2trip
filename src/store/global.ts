@@ -1,13 +1,13 @@
-import { atom } from "recoil";
-import { add } from "date-fns";
+import { atom } from 'recoil';
+import { add } from 'date-fns';
 
 export const DayState = atom({
-  key: "cutTime",
+  key: 'cutTime',
   default: new Date(),
 });
 
 export const dateArray = atom<Date[]>({
-  key: "dateArray",
+  key: 'dateArray',
   default: [
     new Date(),
     add(new Date(), { months: 1 }),
@@ -17,7 +17,7 @@ export const dateArray = atom<Date[]>({
 });
 
 export const pickDateState = atom<any>({
-  key: "pickDateState",
+  key: 'pickDateState',
   default: {
     startDate: add(new Date(), { days: 7 }),
     endDate: add(new Date(), { days: 8 }),
@@ -25,21 +25,21 @@ export const pickDateState = atom<any>({
 });
 
 export const ModalState = atom({
-  key: "ModalState",
+  key: 'ModalState',
   default: false,
 });
 
 export const HideCard = atom<boolean>({
-  key: "hideCard",
+  key: 'hideCard',
   default: false,
 });
 
 export const IsBooked = atom<boolean>({
-  key: "isBookedHotel",
+  key: 'isBookedHotel',
   default: false,
 });
 
-export const IsBookingButton = atom<boolean>({
-  key: "IsBookingButton",
+export const IsBookedButton = atom<boolean>({
+  key: 'isBookedButton',
   default: false,
 });

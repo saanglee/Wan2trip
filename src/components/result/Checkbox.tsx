@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 const Checkbox = (props: string | any) => {
   const [isGrade, setIsGrade] = useState<string[]>([
-    "5성급",
-    "4성급",
-    "3성급",
-    "2성급",
-    "1성급",
+    '5성급',
+    '4성급',
+    '3성급',
+    '2성급',
+    '1성급',
   ]);
   useEffect(() => {
-    if (props.title === "리뷰 평가") {
-      setIsGrade(["최고", "매우 좋음", "좋음", "보통", "없음"]);
+    if (props.title === '리뷰 평가') {
+      setIsGrade(['최고', '매우 좋음', '좋음', '보통', '없음']);
     }
   }, []);
 

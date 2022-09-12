@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Tag from "./Tag";
-import Sort from "./Sort";
-import ResultList from "./ResultList";
+import React, { useState } from 'react';
+import Tag from './Tag';
+import Sort from './Sort';
+import ResultList from './ResultList';
 
 const ResultMobile = () => {
   const [isMapActive, setIsMapActive] = useState(true);
   return (
-    <div className=" bg-white dark:bg-gray-800">
+    <div className="bg-white  dark:bg-gray-800">
       <div className="relative z-20">
         <Tag />
         <div className="h-4">

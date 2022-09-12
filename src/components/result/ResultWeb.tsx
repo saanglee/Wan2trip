@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import Tag from "./Tag";
-import Checkbox from "./Checkbox";
-import Sort from "./Sort";
-import ResultList from "./ResultList";
-import { ReactComponent as Location } from "../../static/image/Location.svg";
-import { ReactComponent as LeftArrow } from "../../static/image/LeftArrow.svg";
+import React, { useState } from 'react';
+import Tag from './Tag';
+import Checkbox from './Checkbox';
+import Sort from './Sort';
+import ResultList from './ResultList';
+import { ReactComponent as Location } from '../../static/image/Location.svg';
+import { ReactComponent as LeftArrow } from '../../static/image/LeftArrow.svg';
 
 const ResultTablet = () => {
   const [isMapActive, setIsMapActive] = useState(true);
@@ -47,7 +47,7 @@ const ResultTablet = () => {
         <Checkbox title="리뷰 평가" />
       </div>
       <div className="w-9/12 border-black px-50">
-        <div className="relative bg-white border border-solid border-gray-200 rounded dark:bg-gray-600">
+        <div className="relative bg-white border border-gray-200 border-solid rounded dark:bg-gray-600">
           <Sort />
         </div>
         {isMapActive ? (

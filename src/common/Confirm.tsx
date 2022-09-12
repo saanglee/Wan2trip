@@ -1,10 +1,9 @@
-import React, { FunctionComponent, useEffect } from "react";
-import ReactDOM from "react-dom";
-import tw from "tailwind-styled-components";
-
-import { Link } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { IsBookingButton } from "store/global";
+import React, { FunctionComponent } from 'react';
+import ReactDOM from 'react-dom';
+import tw from 'tailwind-styled-components';
+import { Link } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { IsBookedButton } from 'store/global';
 
 export interface ConfirmProps {
   isShown: boolean;
@@ -17,9 +16,8 @@ export const Confirm: FunctionComponent<ConfirmProps> = ({
   isShown,
   hide,
   modalContent,
-  headerText,
 }) => {
-  const isBookingButton = useRecoilValue(IsBookingButton);
+  const isBookedButton = useRecoilValue(IsBookedButton);
   const Confirm = (
     <React.Fragment>
       <Backdrop onClick={() => hide()} />
@@ -27,7 +25,7 @@ export const Confirm: FunctionComponent<ConfirmProps> = ({
         <StyledModal>
           <Content>
             {modalContent}
-            {isBookingButton ? (
+            {isBookedButton ? (
               <Button>
                 <Link to="/booked" className="">
                   <button className="flex items-center justify-center pr-10 font-bold text-center border-r h-14 w-36">

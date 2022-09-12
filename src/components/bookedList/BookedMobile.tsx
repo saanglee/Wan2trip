@@ -1,10 +1,10 @@
-import { Hotel } from "types/types";
-import { uid } from "react-uid";
-import tw from "tailwind-styled-components";
-import Noreserve from "../../static/image/Noreserve.png";
-import Card from "common/Card";
-import VirtualScroll from "common/VirtualScroll";
-import Spinner from "../../static/icons/spinner.png";
+import { Hotel } from 'types/types';
+import { uid } from 'react-uid';
+import tw from 'tailwind-styled-components';
+import Noreserve from '../../static/image/Noreserve.png';
+import Card from 'common/Card';
+import VirtualScroll from 'common/VirtualScroll';
+import Spinner from '../../static/icons/spinner.png';
 
 type Props = {
   hotel: Hotel[];

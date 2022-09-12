@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import tw from "tailwind-styled-components";
-import SearchInput from "./SearchInput";
-import CalendarInput from "./CalendarInput";
-import GuestInput from "./GuestInput";
+import React, { useEffect, useState } from 'react';
+import tw from 'tailwind-styled-components';
+import SearchInput from './SearchInput';
+import CalendarInput from './CalendarInput';
+import GuestInput from './GuestInput';
 import {
   SearchData,
   PeopleNumber,
@@ -11,12 +11,12 @@ import {
   ChildrenNumber,
   SearchValue,
   SearchListOpen,
-} from "../../store/search";
-import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
-import { useGetHotels, useSearchResults } from "../../api/queries";
-import { ReactComponent as SearchWhiteIcon } from "../../static/image/SearchWhite.svg";
-import { useLocation, useNavigate } from "react-router-dom";
-import { useSearch } from "hooks/useSearch";
+} from '../../store/search';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useGetHotels, useSearchResults } from '../../api/queries';
+import { ReactComponent as SearchWhiteIcon } from '../../static/image/SearchWhite.svg';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useSearch } from 'hooks/useSearch';
 
 const SearchBar = () => {
   const location = useLocation();
@@ -44,7 +44,7 @@ const SearchBar = () => {
     setSearchListOpen(true);
     setKeyword(value);
 
-    if (value !== "") {
+    if (value !== '') {
       const fuzzyRegex = createFuzzyMatcher(value);
 
       const strList: string[] | any = [];
@@ -72,8 +72,8 @@ const SearchBar = () => {
     setPeopleNumber(peopleNum);
     refetchSearchResult();
 
-    if (location.pathname === "/") {
-      navigate("/result");
+    if (location.pathname === '/') {
+      navigate('/result');
     }
   };
 

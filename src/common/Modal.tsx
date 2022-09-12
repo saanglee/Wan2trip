@@ -1,9 +1,9 @@
-import React, { FunctionComponent } from "react";
-import ReactDOM from "react-dom";
-import tw from "tailwind-styled-components";
-import { DayState } from "../store/global";
-import { useRecoilState } from "recoil";
-import { ReactComponent as CloseIcon } from "../static/image/Close.svg";
+import React, { FunctionComponent } from 'react';
+import ReactDOM from 'react-dom';
+import tw from 'tailwind-styled-components';
+import { DayState } from '../store/global';
+import { useRecoilState } from 'recoil';
+import { ReactComponent as CloseIcon } from '../static/image/Close.svg';
 
 export interface ModalProps {
   isShown: boolean;

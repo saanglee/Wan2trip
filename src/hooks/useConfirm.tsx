@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useConfirm = () => {
   const [isShown, setIsShown] = useState<boolean>(false);

@@ -1,6 +1,6 @@
-import React from "react";
-import tw from "tailwind-styled-components";
-import Back from "../../static/image/background.jpg";
+import React from 'react';
+import tw from 'tailwind-styled-components';
+import Back from '../../static/image/background.jpg';
 
 const HomeBackground = () => {
   return (

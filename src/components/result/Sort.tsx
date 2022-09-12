@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { ReactComponent as DownArrow } from "../../static/image/DownArrow.svg";
+import React, { useState } from 'react';
+import { ReactComponent as DownArrow } from '../../static/image/DownArrow.svg';
 
 const Sort = () => {
-  const sortList = ["인기순", "가격", "등급", "할인우선순", "평가순"];
+  const sortList = ['인기순', '가격', '등급', '할인우선순', '평가순'];
   const [open, setOpen] = useState(false);
   return (
     <>
@@ -13,7 +13,7 @@ const Sort = () => {
         </div>
         <ul className="flex items-center h-8 p-0 m-0 text-sm justify-evenly">
           {sortList.map((value, index) =>
-            String(value) === "가격" ? (
+            String(value) === '가격' ? (
               <li
                 key={index}
                 className="relative w-1/5 hover:text-[#FF375C] cursor-pointer flex justify-center border-r-2 border-slate-300"
@@ -45,10 +45,10 @@ const Sort = () => {
       </div>
       {/* mobile */}
       <div className="fixed top-56 md:top-0 flex items-center px-5 justify-between md:relative lg:hidden border-b-2lg:hidden border-gray-200 w-[100vw] bg-white drop-shadow-xl dark:bg-gray-300">
-        <div className="flex items-center font-medium text-sm h-14">
+        <div className="flex items-center text-sm font-medium h-14">
           1,691개 호텔 중 예약가능 호텔 419개
         </div>
-        <select className="flex items-center justify-center justify-self-end text-sm">
+        <select className="flex items-center justify-center text-sm justify-self-end">
           {sortList.map((value, index) => (
             <option
               key={index}

@@ -1,33 +1,33 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Tag = () => {
   const [isTagActive, setIsTagActive] = useState(true);
   const tags = [
-    "#비지니스",
-    "#쇼핑",
-    "#가족",
-    "#럭셔리",
-    "#스파",
-    "#반려동물",
-    "#시티",
-    "#골프",
-    "#친환경",
-    "#카지노",
-    "#자연",
-    "#커플",
-    "#스키",
-    "#고급/럭셔리",
-    "#부티크",
-    "#가족",
-    "#단체/MT/워크샵",
-    "#로맨틱",
-    "#풀빌라",
-    "#한옥",
-    "#레지던스",
-    "#부티크",
-    "#어드벤처",
-    "#애견펜션",
-    "#와이너리",
+    '#비지니스',
+    '#쇼핑',
+    '#가족',
+    '#럭셔리',
+    '#스파',
+    '#반려동물',
+    '#시티',
+    '#골프',
+    '#친환경',
+    '#카지노',
+    '#자연',
+    '#커플',
+    '#스키',
+    '#고급/럭셔리',
+    '#부티크',
+    '#가족',
+    '#단체/MT/워크샵',
+    '#로맨틱',
+    '#풀빌라',
+    '#한옥',
+    '#레지던스',
+    '#부티크',
+    '#어드벤처',
+    '#애견펜션',
+    '#와이너리',
   ];
   return (
     <>
@@ -59,7 +59,7 @@ const Tag = () => {
       </div>
       {/* mobile */}
       <div className="flex lg:hidden">
-        <div className="fixed top-46 md:top-0 flex w-full pl-2 pb-2 pt-0 md:pt-6 bg-white overflow-x-auto text-sm font-semibold text-black flex-nowrap md:relative dark:bg-gray-600">
+        <div className="fixed flex w-full pt-0 pb-2 pl-2 overflow-x-auto text-sm font-semibold text-black bg-white top-46 md:top-0 md:pt-6 flex-nowrap md:relative dark:bg-gray-600">
           {tags.map((tag, index) => (
             <div key={index}>
               <input

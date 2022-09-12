@@ -1,5 +1,5 @@
-import React from "react";
-import { useWindowScroll, useWindowSize } from "react-use";
+import React from 'react';
+import { useWindowScroll, useWindowSize } from 'react-use';
 
 type Props = {
   children: JSX.Element[];
@@ -51,7 +51,7 @@ const VirtualScroll = ({
     <div
       className="w-full will-change-transform"
       style={{
-        width: "100%",
+        width: '100%',
         height: `${containerHeight}rem`,
       }}
       ref={scrollRef}

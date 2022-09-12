@@ -1,28 +1,28 @@
-import tw from "tailwind-styled-components";
-import { Hotel } from "types/types";
-import Card from "common/Card";
-import Noreserve from "../../static/image/Noreserve.png";
-import VirtualScroll from "common/VirtualScroll";
-import { uid } from "react-uid";
-import Spinner from "../../static/icons/spinner.png";
+import tw from 'tailwind-styled-components';
+import { Hotel } from 'types/types';
+import Card from 'common/Card';
+import Noreserve from '../../static/image/Noreserve.png';
+import VirtualScroll from 'common/VirtualScroll';
+import { uid } from 'react-uid';
+import Spinner from '../../static/icons/spinner.png';
 
 type Props = {
   hotel: Hotel[];
   isLoading: boolean;
 };
 
-const BookedWeb = ({ hotel, isLoading }: Props) => {
+const BookedPc = ({ hotel, isLoading }: Props) => {
   return (
-    <BookedWebContainer>
-      <BookedWebAside />
-      <BookedWebContent hotel={hotel} isLoading={isLoading} />
-    </BookedWebContainer>
+    <BookedPcContainer>
+      <BookedPcAside />
+      <BookedPcContent hotel={hotel} isLoading={isLoading} />
+    </BookedPcContainer>
   );
 };
 
-const BookedWebContainer = tw.div`flex h-full`;
+const BookedPcContainer = tw.div`flex h-full`;
 
-const BookedWebAside = () => {
+const BookedPcAside = () => {
   return (
     <div className="flex flex-col w-1/4 h-40 py-2 bg-white rounded cursor-pointer dark:bg-gray-600">
       <div className="flex items-center w-full h-1/3 border-l-4 border-[#FF375C] bg-[#FEEEF1] pl-6 dark:bg-gray-400">
@@ -32,7 +32,7 @@ const BookedWebAside = () => {
   );
 };
 
-const BookedWebContent = ({ hotel, isLoading }: Props) => {
+const BookedPcContent = ({ hotel, isLoading }: Props) => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center w-3/4 py-2 ml-4 bg-white h-[60vh]">
@@ -67,4 +67,4 @@ const BookedWebContent = ({ hotel, isLoading }: Props) => {
   );
 };
 
-export default BookedWeb;
+export default BookedPc;

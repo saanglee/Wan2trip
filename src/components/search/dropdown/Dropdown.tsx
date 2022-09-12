@@ -1,7 +1,7 @@
-import React from "react";
-import { useSetRecoilState } from "recoil";
-import { SearchListOpen, SearchValue } from "store/search";
-import tw from "tailwind-styled-components";
+import React from 'react';
+import { useSetRecoilState } from 'recoil';
+import { SearchListOpen, SearchValue } from 'store/search';
+import tw from 'tailwind-styled-components';
 
 interface PropsType {
   searchList: string[] | undefined;
@@ -21,8 +21,8 @@ const Dropdown = ({ searchList, inputState }: PropsType) => {
     <div
       className={`${
         !inputState
-          ? "hidden"
-          : "w-80 mt-1 h-auto relative bg-white md:border-r md:border-solid border-gray-300 border rounded-md "
+          ? 'hidden'
+          : 'w-80 mt-1 h-auto relative bg-white md:border-r md:border-solid border-gray-300 border rounded-md '
       }`}
     >
       <ul className="overflow-x-hidden overflow-y-auto max-h-56">

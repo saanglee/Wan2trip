@@ -4,9 +4,9 @@ import SearchBar from '../components/search/SearchBar';
 import Layout from '../components/layout/Layout';
 import BookedList from '../components/bookedList/BookedList';
 
-// import tw from "tailwind-styled-components";
+// import tw from 'tailwind-styled-components';
 
-const BookedListPage = () => {
+const BookedHotels = () => {
   return (
     <Layout>
       <Header />
@@ -15,4 +15,4 @@ const BookedListPage = () => {
   );
 };
 
-export default BookedListPage;
+export default BookedHotels;

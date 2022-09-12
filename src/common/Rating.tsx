@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Rating = ({ rating }: { rating: number }) => {
   // (rating:number )랑 무슨차이?

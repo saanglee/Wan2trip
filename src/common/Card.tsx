@@ -1,9 +1,9 @@
-import { Hotel } from "types/types";
-import { priceToString } from "../utils/priceToString";
-import BookingButton from "../components/bookedList/BookingButton";
-import Rating from "./Rating";
-import { useRecoilValue } from "recoil";
-import { HideCard } from "store/global";
+import { Hotel } from 'types/types';
+import { priceToString } from '../utils/priceToString';
+import BookButton from '../components/bookedList/BookButton';
+import Rating from './Rating';
+import { useRecoilValue } from 'recoil';
+import { HideCard } from 'store/global';
 
 interface PropsType {
   data: Hotel;
@@ -11,20 +11,12 @@ interface PropsType {
 }
 
 const IMAGE_URL =
-  "https://images.unsplash.com/photo-1535827841776-24afc1e255ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80";
+  'https://images.unsplash.com/photo-1535827841776-24afc1e255ac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1335&q=80';
 
 const BookedHotels: Hotel[] = [];
 
 const Card = ({ data, isBooked }: PropsType) => {
-  const {
-    hotel_name: hotelName,
-    address,
-    rating,
-    review,
-    occupancyBase,
-    occupancyMax,
-    price,
-  } = data;
+  const { hotel_name: hotelName, address, rating, review, price } = data;
 
   return (
     <div
@@ -43,7 +35,7 @@ const Card = ({ data, isBooked }: PropsType) => {
         <p className="text-slate-600">{address}</p>
         <div className="mt-3 mb-5 ">
           <span className="font-bold text-slate-600 ">
-            총 {review} 건의 리뷰{" "}
+            총 {review} 건의 리뷰{' '}
           </span>
           <span>
             <Rating rating={rating} />
@@ -52,7 +44,7 @@ const Card = ({ data, isBooked }: PropsType) => {
         <div className="self-end m-0 mt-3 text-2xl text-end">
           <p className="font-bold ">{priceToString(price)} 원</p>
           <p className="text-xs text-slate-400">세금 및 수수료 불포함</p>
-          <BookingButton newData={data} isBooked={isBooked} />
+          <BookButton newHotel={data} isBooked={isBooked} />
         </div>
       </section>
     </div>

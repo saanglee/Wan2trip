@@ -1,16 +1,16 @@
-import React from "react";
-import _ from "lodash";
-import { uid } from "react-uid";
-import { add, isBefore, isSameMonth } from "date-fns";
-import { dateArray, DayState } from "../../store/global";
-import { useRecoilState } from "recoil";
-import { useObserver } from "../../hooks/useObserver";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
-import { ReactComponent as Left } from "../../static/icons/LeftArrow.svg";
-import { ReactComponent as Right } from "../../static/icons/RightArrow.svg";
-import tw from "tailwind-styled-components";
-import CalenderHeader from "./CalenderHeader";
-import Table from "./Table";
+import React from 'react';
+import _ from 'lodash';
+import { uid } from 'react-uid';
+import { add, isBefore, isSameMonth } from 'date-fns';
+import { dateArray, DayState } from '../../store/global';
+import { useRecoilState } from 'recoil';
+import { useObserver } from '../../hooks/useObserver';
+import { useMediaQuery } from '../../hooks/useMediaQuery';
+import { ReactComponent as Left } from '../../static/icons/LeftArrow.svg';
+import { ReactComponent as Right } from '../../static/icons/RightArrow.svg';
+import tw from 'tailwind-styled-components';
+import CalenderHeader from './CalenderHeader';
+import Table from './Table';
 
 export const Calender = () => {
   const [today, setToday] = useRecoilState(DayState);
@@ -21,7 +21,7 @@ export const Calender = () => {
     pageNum,
     setPageNum
   );
-  const matches = useMediaQuery("(min-width: 768px)");
+  const matches = useMediaQuery('(min-width: 768px)');
 
   React.useEffect(() => {
     const currentElement = lastElement;
@@ -45,13 +45,13 @@ export const Calender = () => {
 
   const goToBefore = () => {
     if (!isBefore(new Date(), today))
-      return alert("더 이전으로는 갈수 없어요!");
+      return alert('더 이전으로는 갈수 없어요!');
     setToday(add(today, { months: -1 }));
   };
 
   const goToAfter = () => {
     if (isSameMonth(add(new Date(), { months: 11 }), today))
-      return alert("더 이후의 예약은 아직 할수 없어요!");
+      return alert('더 이후의 예약은 아직 할수 없어요!');
     setToday(add(today, { months: 1 }));
   };
 
@@ -59,12 +59,12 @@ export const Calender = () => {
     if (pageNum < 12) {
       return setDate(_.uniq([...date, add(fixedToday, { months: pageNum })]));
     }
-    alert("더 이후의 예약은 아직 할수 없어요!");
+    alert('더 이후의 예약은 아직 할수 없어요!');
   };
 
   return (
     <Container>
-      <div className="text-center mx-auto w-full flex flex-col ip:flex-row ip:justify-between max-w-4xl flex-wrap pb-24">
+      <div className="flex flex-col flex-wrap w-full max-w-4xl pb-24 mx-auto text-center ip:flex-row ip:justify-between">
         {matches && (
           <>
             <CalenderBox>
@@ -73,8 +73,8 @@ export const Calender = () => {
                   <Left
                     className={
                       !isBefore(new Date(), today)
-                        ? "w-14 fill-gray-300 dark:fill-gray-400"
-                        : "w-14 fill-gray-700 dark:fill-gray-50"
+                        ? 'w-14 fill-gray-300 dark:fill-gray-400'
+                        : 'w-14 fill-gray-700 dark:fill-gray-50'
                     }
                   />
                 </button>
@@ -82,8 +82,8 @@ export const Calender = () => {
                   <Right
                     className={
                       isSameMonth(add(new Date(), { months: 11 }), today)
-                        ? "w-14 fill-gray-300 dark:fill-gray-400"
-                        : "w-14 fill-gray-700 dark:fill-gray-50"
+                        ? 'w-14 fill-gray-300 dark:fill-gray-400'
+                        : 'w-14 fill-gray-700 dark:fill-gray-50'
                     }
                   />
                 </button>
