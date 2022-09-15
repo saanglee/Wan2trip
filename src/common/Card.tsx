@@ -1,6 +1,6 @@
 import { Hotel } from 'types/types';
 import { priceToString } from '../utils/priceToString';
-import BookButton from '../components/bookedList/BookButton';
+import BookButton from '../components/book/BookButton';
 import Rating from './Rating';
 import { useRecoilValue } from 'recoil';
 import { HideCard } from 'store/global';
